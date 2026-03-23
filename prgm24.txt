@@ -1,0 +1,69 @@
+> db.createCollection("Empl")
+{ "ok" : 1 }
+> db.Empl.insertMany([{"Empno":1,"Name":"John Doe","Salary":60000,"Role":"Manager"},{"Empno":1,"Name":"John Doe","Salary":60000,"Role":"Manager"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("69b7d138397694755b8c995e"),
+		ObjectId("69b7d138397694755b8c995f")
+	]
+}
+> db.Empl.find().pretty()
+{
+	"_id" : ObjectId("69b7d138397694755b8c995e"),
+	"Empno" : 1,
+	"Name" : "John Doe",
+	"Salary" : 60000,
+	"Role" : "Manager"
+}
+{
+	"_id" : ObjectId("69b7d138397694755b8c995f"),
+	"Empno" : 1,
+	"Name" : "John Doe",
+	"Salary" : 60000,
+	"Role" : "Manager"
+}
+> db.createUser({user:"Admin",pwd:"admin123",roles:["readWrite","dbAdmin"]});
+Successfully added user: { "user" : "Admin", "roles" : [ "readWrite", "dbAdmin" ] }
+> db.createUser({user:"developer",pwd:"dev123",roles:["readWrite"]});
+Successfully added user: { "user" : "developer", "roles" : [ "readWrite" ] }
+> show users
+{
+	"_id" : "Employee.Admin",
+	"userId" : UUID("ae8e0203-c566-49fe-8762-98374d557701"),
+	"user" : "Admin",
+	"db" : "Employee",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "Employee"
+		},
+		{
+			"role" : "dbAdmin",
+			"db" : "Employee"
+		}
+	],
+	"mechanisms" : [
+		"SCRAM-SHA-1",
+		"SCRAM-SHA-256"
+	]
+}
+{
+	"_id" : "Employee.developer",
+	"userId" : UUID("506453da-beb6-46fa-b7df-5c892d6769ee"),
+	"user" : "developer",
+	"db" : "Employee",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "Employee"
+		}
+	],
+	"mechanisms" : [
+		"SCRAM-SHA-1",
+		"SCRAM-SHA-256"
+	]
+}
+> 
+
+

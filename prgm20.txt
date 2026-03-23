@@ -1,0 +1,30 @@
+> use devika
+switched to db devika
+> db.createCollection("Student")
+{ "ok" : 1 }
+> db.student.insert({rollno:101,name:"Alex",Branch:"MCA"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({rollno:102,name:"Maya",Branch:"MBA"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({rollno:103,name:"Niya",Branch:"BCA"})
+WriteResult({ "nInserted" : 1 })
+> db.student.find().pretty()
+{
+	"_id" : ObjectId("69b7c436397694755b8c994d"),
+	"rollno" : 101,
+	"name" : "Alex",
+	"Branch" : "MCA"
+}
+{
+	"_id" : ObjectId("69b7c44f397694755b8c994e"),
+	"rollno" : 102,
+	"name" : "Maya",
+	"Branch" : "MBA"
+}
+{
+	"_id" : ObjectId("69b7c467397694755b8c994f"),
+	"rollno" : 103,
+	"name" : "Niya",
+	"Branch" : "BCA"
+}
+
