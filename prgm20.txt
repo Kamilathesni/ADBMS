@@ -1,5 +1,5 @@
-> use devika
-switched to db devika
+> use kamila
+switched to db kamila
 > db.createCollection("Student")
 { "ok" : 1 }
 > db.student.insert({rollno:101,name:"Alex",Branch:"MCA"})
